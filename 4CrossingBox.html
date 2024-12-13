@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Boxes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: #ff6600;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translate(0, 0);
+            transition: all 0.8s ease-out;
+        }
+
+        .box.right {
+            transform: translateX(100%);
+        }
+
+        .box.left {
+            transform: translateX(-100%);
+        }
+
+        .box.up {
+            transform: translateY(-100%);
+        }
+
+        .box.down {
+            transform: translateY(100%);
+        }
+
+        .box.visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="box right">Box 1</div>
+    <div class="box left">Box 2</div>
+    <div class="box down">Box 3</div>
+    <div class="box up">Box 4</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const boxes = document.querySelectorAll('.box');
+
+        const revealBoxes = () => {
+            boxes.forEach(box => {
+                const boxPosition = box.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+
+                if (boxPosition < screenHeight) {
+                    box.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealBoxes);
+
+        // Trigger animation on load
+        revealBoxes();
+    });
+</script>
+
+</body>
+</html>

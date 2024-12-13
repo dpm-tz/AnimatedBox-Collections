@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .vision {
+            background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+            padding: 10px 20px;
+            text-wrap: wrap;
+            border-radius: 12px;
+            margin: 20px;
+            color: var(--background-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0; /* Start hidden */
+            transform: translateY(-50px); /* Start above the screen */
+            filter: blur(5px); /* Start blurred */
+            animation: slideInFromTop 1s ease-out forwards, focusIn 0.5s ease-out 1s; /* Slide in and then focus */
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-50px); /* Start above the screen */
+                filter: blur(5px); /* Start blurred */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* End at the normal position */
+                filter: blur(0); /* Remove the blur */
+            }
+        }
+
+        @keyframes focusIn {
+            0% {
+                filter: blur(5px); /* Start blurred */
+            }
+            100% {
+                filter: blur(0); /* Focus the element */
+            }
+        }
+
+        .vision h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: black;
+        }
+
+        .vision p {
+            background: rgb(253, 252, 252);
+            padding: 15px 14px;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: black;
+        }
+
+        .vision .point {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .vision a {
+            text-decoration: none;
+            color: var(--button-bg);
+            font-weight: bold;
+        }
+
+        .vision a:hover {
+            color: var(--button-bg-hover);
+        }
+
+        /* Media query for small screens */
+        @media screen and (max-width: 768px) {
+            .vision {
+                padding: 20px 10px; /* Reduce padding */
+                margin: 10px; /* Reduce margin */
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Slightly reduce the box shadow */
+            }
+
+            .vision h1 {
+                font-size: 1.5em; /* Adjust font size */
+                margin-top: 20px; /* Adjust top margin */
+            }
+
+            .vision p {
+                padding: 10px; /* Reduce padding */
+                font-size: 1em; /* Reduce font size */
+                margin-bottom: 15px; /* Adjust bottom margin */
+            }
+
+            .vision .point {
+                display: block; /* Ensure points are displayed on a new line */
+                margin-top: 10px; /* Add some spacing above the points */
+            }
+
+            .vision a {
+                display: block; /* Ensure the link is displayed on a new line */
+                margin-top: 10px; /* Add some spacing above the link */
+                text-align: center; /* Center align the link */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================ABOUT US======================================== -->
+    <div class="vision" id="about">
+        <h2>Who We Are?</h2>
+        <p><strong>Green Horizon Society (GHS)</strong> is a non-profit organization
+           dedicated to the conservation of wildlife in Mbeya, Tanzania.
+            Our mission is to protect and preserve the natural habitats of endangered species, 
+            promote sustainable living, and create a harmonious relationship between humans and wildlife.
+          <br>
+          We work closely with local communities, government agencies, 
+          and other conservation organizations to achieve our goals.
+           Our team of experts includes wildlife biologists, ecologists, 
+           and conservationists who are passionate about protecting the environment and 
+           wildlife. Join us in our mission to make a positive impact on the world.
+        </p>
+    </div>
+</body>
+</html>
